@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+{%block title%}Log In{%endblock title%}
+
+{%block content%}
+
+    <div class="d-flex flex-column justify-content-center align-items-center">
+            <form method="POST">
+                <h1 class="text-center">Log In</h1>
+                {%csrf_token%}
+                {{form.as_p}}
+                <div class="text-center">
+                <input type="submit" class="btn btn-success d-block mx-auto" value="Log In">
+                </div>
+
+            </form>
+    </div>
+
+
+
+{%endblock content%}
