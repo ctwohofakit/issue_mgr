@@ -6,11 +6,13 @@
 body{
     min-height: 100vh;
 }
+
+
 .navbar{
     background-color: #e1e6ff;
     padding: 0.4rem 0;
     top: 0;
-    width: 100%;
+    width: 65%;
     z-index: 999;
     font-weight: bold;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,7 +23,6 @@ body{
     background-color: rgb(255, 254, 248);
 
 }
-
 
 .kanban-container{
     display: flex;

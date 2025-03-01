@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'pages',
     'accounts',
     'issues',
@@ -132,4 +133,13 @@ STATICFILES_DIRS=[str(BASE_DIR.joinpath("static"))]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
+LOGIN_REDIRECT_URL="home"
+LOGOUT_REDIRECT_URL="home"
+
+
+
+
+
 

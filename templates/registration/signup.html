@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-{%load crispy_forms_tags %}
+
 
 {%block title%}Sign Up{%endblock title%}
 
@@ -10,7 +10,6 @@
         <h1 class="text-center">Sign up</h1>
 
         {%csrf_token%}
-        <!-- {{form|crispy}} -->
         {{form.as_p}}
         <div class="text-center">
         <input type="submit" class="btn btn-success d-block mx-auto" value="Sign up">
