@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+
+{%block title%}{{ issue.name}}{%endblock title%}
+
+{%block content%}
+<div class="edit-set">
+    <a href="{% url 'edit' issue.pk %}"><button class="btn btn-secondary">Edit</button></a>
+    <a href="{% url 'delete' issue.pk %}"><button class="btn btn-danger">Delete</button></a>
+</div>
+{{form.as_p}}
+    <div class="post">
+    <h1>{{ issue.name}}</h1>
+    <h3>{{issue.summary}}</h3>
+    <small>{{issue.created_on}}</small> 
+    <p>{{issue.description}}</p>
+    <h3>{{issue.status}}</h3>
+    <small>By:{{issue.assignee}}</small> 
+
+</div>
+
+
+{%endblock content%}

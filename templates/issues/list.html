@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %} {{title}} Tasks {% endblock title %}
+
+{% block content %}
+<h1 class="text-center"  style="margin-top:10px;">Kanban Task Board</h1>
+<div class="kanban-container">
+    <div class="kanban-column" id="todo">
+    <h4 class="todo-banner">To Do</h4>
+        <div class="tasks" data-status="to-do">
+                {% for issue in to_do_list %}  
+                <div class="card" style="width: 18rem; margin-top:5px;">
+                  <div class="card-body ">
+                    <h5 class="card-title">{{ issue.name }}</h5>
+                    <p class="card-text">{{ issue.summary|truncatechars:32 }}</p>
+                    <small>Assignee: {{ issue.assignee }}</small>
+                    <a href="{% url 'detail' issue.id %}" class="btn btn-success">See Details</a>
+                  </div>
+                </div>
+              {% empty %}
+                <p>No tasks in progress</p>
+              {% endfor %}
+              
+        </div>
+    </div>
+
+    <br>
+
+
+    <div class="kanban-column" id="in-progress">
+        <h4 class="in-banner">In Progress</h4>
+        <div class="tasks" data-status="in-progress">
+            {% for issue in in_progress_list %}  
+            <div class="card" style="width: 18rem; margin-top:5px;">
+              <div class="card-body">
+                <h5 class="card-title">{{ issue.name }}</h5>
+                <p class="card-text">{{ issue.summary|truncatechars:32 }}</p>
+                <small>Assignee: {{ issue.assignee }}</small>
+                <a href="{% url 'detail' issue.id %}" class="btn btn-success">See Details</a>
+            </div>
+            </div>
+          {% empty %}
+            <p>No tasks in progress</p>
+            <br>
+          {% endfor %}
+        </div>
+     </div>
+
+
+    <br>
+    <div class="kanban-column" id="done">
+        <h4 class="done-banner">Done</h4>
+        <div class="tasks" data-status="done">
+            {% for issue in done_list %}  
+            <div class="card" style="width: 18rem; margin-top:5px;">
+              <div class="card-body">
+                <h5 class="card-title">{{ issue.name }}</h5>
+                <p class="card-text">{{ issue.summary|truncatechars:32 }}</p>
+                <small>Assignee: {{ issue.assignee }}</small>
+                <a href="{% url 'detail' issue.id %}" class="btn btn-success">See Details</a>
+            </div>
+            </div>
+          {% empty %}
+            <p>No tasks in progress</p>
+          {% endfor %}
+     </div>
+    </div>
+
+        
+
+
+    <div class="kancolumn" id="done">
+        <a href="{% url 'new'%}" class="btn btn-primary">+ Add Task</a>
+
+    </div>
+
+
+</div>
+            <!-- <br>
+            <table class="table table-dark">
+            <tbody>
+                
+                {% for post in post_list %}  
+                <tr>
+                    <th scope="row" style="width: 20%;">{{ post.title }}</th>
+                    <td style="width: 45%;">{{ post.body|truncatechars:64 }}</td>
+                    <td style="width: 5%;">{{ post.author }}</td>
+                    <td style="width: 10%;">{{ post.created_on|date:"F d, Y" }}</td>  
+                    <td style="width: 10%;"><a href="{% url 'detail' post.id %}" class="btn btn-success btn-sm">Read more</a></td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+{% endblock content %}
